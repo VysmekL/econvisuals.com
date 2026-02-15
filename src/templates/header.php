@@ -55,6 +55,7 @@
         // Google Analytics
         gtag('js', new Date());
         gtag('config', 'G-TRG4YVSB6S', {
+            'send_page_view': false,  // Don't send pageview automatically
             'anonymize_ip': true,
             'cookie_flags': 'SameSite=None;Secure'
         });
@@ -150,6 +151,14 @@
                     'ad_user_data': 'denied',
                     'ad_personalization': 'denied'
                 });
+
+                // Send pageview ONLY if analytics is allowed
+                if (analyticsAllowed) {
+                    gtag('event', 'page_view', {
+                        'page_location': window.location.href,
+                        'page_title': document.title
+                    });
+                }
             }
 
             function hideConsentBanner() {
