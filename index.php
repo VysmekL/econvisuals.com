@@ -11,6 +11,7 @@ use App\Post;
 use App\Category;
 use App\Tag;
 use App\ImageHandler;
+use App\Database;
 
 // Inicializovat upload složku
 ImageHandler::ensureUploadDir();
