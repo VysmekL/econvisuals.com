@@ -5,8 +5,8 @@
  * Display grid of infographics
  */
 
-$pageTitle = 'Infographics';
-$pageDescription = 'Collection of data-driven visual infographics with sources.';
+$pageTitle = 'EconVisuals | Homepage';
+$pageDescription = 'Data-driven infographics with verified sources. Visualizing economy, health, science, technology, and environment.';
 
 include __DIR__ . '/header.php';
 ?>

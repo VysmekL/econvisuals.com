@@ -5,7 +5,7 @@
  * Detail of infographic with content and sources
  */
 
-$pageTitle = htmlspecialchars($post['title']);
+$pageTitle = htmlspecialchars($post['title']) . ' | EconVisuals';
 $pageDescription = htmlspecialchars($post['meta_description'] ?? mb_substr(strip_tags($post['content'] ?? ''), 0, 160));
 $ogImage = 'https://' . $_SERVER['HTTP_HOST'] . '/uploads/infographics/' . $post['image_filename'];
 

@@ -3,8 +3,8 @@
  * Category Template
  */
 
-$pageTitle = htmlspecialchars($category['name']) . ' - Category';
-$pageDescription = 'Infographics in category ' . htmlspecialchars($category['name']);
+$pageTitle = htmlspecialchars($category['name']) . ' | EconVisuals';
+$pageDescription = 'Explore ' . htmlspecialchars($category['name']) . ' infographics - data visualizations with verified sources.';
 
 include __DIR__ . '/header.php';
 ?>

@@ -4,8 +4,8 @@
  */
 
 $searchQuery = htmlspecialchars($_GET['q'] ?? '');
-$pageTitle = !empty($searchQuery) ? "Search: $searchQuery" : 'Search';
-$pageDescription = 'Search results for infographics';
+$pageTitle = !empty($searchQuery) ? "Search: $searchQuery | EconVisuals" : 'Search | EconVisuals';
+$pageDescription = !empty($searchQuery) ? "Search results for '$searchQuery' - find infographics on EconVisuals" : 'Search infographics on EconVisuals';
 
 include __DIR__ . '/header.php';
 ?>

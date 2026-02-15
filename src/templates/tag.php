@@ -3,8 +3,8 @@
  * Tag Template
  */
 
-$pageTitle = '#' . htmlspecialchars($tag['name']) . ' - Tag';
-$pageDescription = 'Infographics tagged with ' . htmlspecialchars($tag['name']);
+$pageTitle = '#' . htmlspecialchars($tag['name']) . ' | EconVisuals';
+$pageDescription = 'Infographics tagged with #' . htmlspecialchars($tag['name']) . ' - data visualizations with verified sources.';
 
 include __DIR__ . '/header.php';
 ?>
