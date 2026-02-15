@@ -52,14 +52,14 @@
             'wait_for_update': 500
         });
 
-        // Google Analytics - replace GA_MEASUREMENT_ID with your actual ID
+        // Google Analytics
         gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID', {
+        gtag('config', 'G-TRG4YVSB6S', {
             'anonymize_ip': true,
             'cookie_flags': 'SameSite=None;Secure'
         });
     </script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRG4YVSB6S"></script>
 </head>
 <body>
     <nav class="main-nav">
