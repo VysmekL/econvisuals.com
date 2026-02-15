@@ -1,0 +1,64 @@
+╔═══════════════════════════════════════════════════════════════════╗
+║              🚀 JAK NAHRÁT NA GITHUB (POSLEDNÍ KROK)             ║
+╚═══════════════════════════════════════════════════════════════════╝
+
+Projekt je připravený! Commit je vytvořený. Teď ho jen pushneme na GitHub.
+
+═══════════════════════════════════════════════════════════════════
+KROK 1: Vytvoř nové GitHub repository
+═══════════════════════════════════════════════════════════════════
+
+1. Jdi na: https://github.com/new
+
+2. Vyplň:
+   - Repository name: econvisuals-cms
+   - Description: Minimalistický CMS pro čtvercové infografiky
+   - Visibility: Private (doporučeno!) nebo Public
+   - ❌ NEZAŠKRTÁVEJ "Initialize this repository with README"
+
+3. Klikni "Create repository"
+
+═══════════════════════════════════════════════════════════════════
+KROK 2: Zkopíruj URL svého nového repo
+═══════════════════════════════════════════════════════════════════
+
+GitHub ti ukáže URL typu:
+https://github.com/tvuj-username/econvisuals-cms.git
+
+Zkopíruj si ho!
+
+═══════════════════════════════════════════════════════════════════
+KROK 3: Pushnout projekt (PŘÍKAZY)
+═══════════════════════════════════════════════════════════════════
+
+Otevři Git Bash nebo terminál v této složce a spusť:
+
+git remote add origin https://github.com/tvuj-username/econvisuals-cms.git
+git branch -M main
+git push -u origin main
+
+Zadej GitHub username a heslo (nebo Personal Access Token).
+
+═══════════════════════════════════════════════════════════════════
+HOTOVO! 🎉
+═══════════════════════════════════════════════════════════════════
+
+Tvůj projekt je teď zálohovaný na GitHubu!
+
+⚠️ DŮLEŽITÉ:
+- config/db.php s hesly NENÍ na GitHubu (je v .gitignore)
+- Když budeš instalovat znovu, musíš vytvořit config/db.php
+  podle config/db.example.php
+
+═══════════════════════════════════════════════════════════════════
+POZNÁMKA:
+═══════════════════════════════════════════════════════════════════
+
+Pokud ti GitHub bude chtít Personal Access Token místo hesla:
+
+1. Jdi na: https://github.com/settings/tokens
+2. Klikni "Generate new token (classic)"
+3. Vyber scope: "repo"
+4. Zkopíruj token a použij ho jako heslo
+
+═══════════════════════════════════════════════════════════════════
