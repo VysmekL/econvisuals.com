@@ -1,0 +1,12 @@
+# Robots.txt - Infographic CMS
+
+User-agent: *
+
+# Zakázat indexování administrace
+Disallow: /jsilepsi/
+
+# Povolit vše ostatní
+Allow: /
+
+# Sitemap (vytvořit později)
+# Sitemap: https://example.com/sitemap.xml

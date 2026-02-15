@@ -1,0 +1,435 @@
+/* ============================================================================
+   Infographic CMS - Main Stylesheet
+   ============================================================================
+   Mobile-first approach with CSS Grid, modern layouts, and dark mode support
+   ============================================================================ */
+
+/* ============================================================================
+   CSS Variables (Design Tokens)
+   ============================================================================ */
+:root {
+    /* Colors - Light Mode */
+    --color-primary: #2563eb;
+    --color-primary-hover: #1d4ed8;
+    --color-text: #1f2937;
+    --color-text-secondary: #6b7280;
+    --color-background: #ffffff;
+    --color-surface: #f9fafb;
+    --color-border: #e5e7eb;
+    --color-accent: #10b981;
+
+    /* Typography */
+    --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+
+    /* Layout */
+    --container-max-width: 1200px;
+    --border-radius: 8px;
+    --transition: all 0.2s ease;
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-primary: #3b82f6;
+        --color-primary-hover: #60a5fa;
+        --color-text: #f9fafb;
+        --color-text-secondary: #9ca3af;
+        --color-background: #111827;
+        --color-surface: #1f2937;
+        --color-border: #374151;
+        --color-accent: #34d399;
+    }
+}
+
+/* ============================================================================
+   Reset & Base Styles
+   ============================================================================ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--color-text);
+    background-color: var(--color-background);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--color-primary-hover);
+}
+
+/* ============================================================================
+   Container
+   ============================================================================ */
+.container {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding: 0 var(--spacing-xl);
+    }
+}
+
+/* ============================================================================
+   Navigation
+   ============================================================================ */
+.main-nav {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--spacing-md) 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+.main-nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.nav-menu a {
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+.nav-menu a:hover {
+    color: var(--color-primary);
+}
+
+/* ============================================================================
+   Page Header
+   ============================================================================ */
+.page-header {
+    padding: var(--spacing-2xl) 0;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: var(--spacing-sm);
+}
+
+.page-header p {
+    color: var(--color-text-secondary);
+    font-size: 1.125rem;
+}
+
+/* ============================================================================
+   Infographic Grid (CSS Grid)
+   ============================================================================ */
+.infographic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-xl);
+    padding: var(--spacing-xl) 0;
+}
+
+@media (min-width: 768px) {
+    .infographic-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: var(--spacing-2xl);
+    }
+}
+
+/* ============================================================================
+   Infographic Card
+   ============================================================================ */
+.infographic-card {
+    background: var(--color-surface);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: var(--transition);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.infographic-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.infographic-card a {
+    color: inherit;
+}
+
+/* KRITICKÉ: Aspect Ratio 1:1 pro čtvercové infografiky */
+.infographic-image {
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    margin: 0;
+}
+
+.infographic-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.infographic-card:hover .infographic-image img {
+    transform: scale(1.05);
+}
+
+.card-content {
+    padding: var(--spacing-lg);
+}
+
+.card-content h2 {
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.3;
+}
+
+.card-meta {
+    display: flex;
+    gap: var(--spacing-md);
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-top: var(--spacing-sm);
+}
+
+/* ============================================================================
+   Category Badge
+   ============================================================================ */
+.category-badge {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: var(--color-primary);
+    color: white;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: var(--spacing-sm);
+}
+
+/* ============================================================================
+   Post Detail
+   ============================================================================ */
+.post-detail {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--spacing-2xl) 0;
+}
+
+.post-header {
+    margin-bottom: var(--spacing-2xl);
+}
+
+.post-header h1 {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    line-height: 1.2;
+    margin-bottom: var(--spacing-md);
+}
+
+.post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    align-items: center;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-md);
+}
+
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+.tag {
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 20px;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+}
+
+.tag:hover {
+    background: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+/* ============================================================================
+   Infographic Container (Detail Page)
+   ============================================================================ */
+.infographic-container {
+    aspect-ratio: 1 / 1;
+    margin: var(--spacing-2xl) 0;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.infographic-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ============================================================================
+   Post Content (Zdroje)
+   ============================================================================ */
+.post-content {
+    margin: var(--spacing-2xl) 0;
+}
+
+.post-content details {
+    background: var(--color-surface);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    border: 1px solid var(--color-border);
+}
+
+.post-content summary {
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    padding: var(--spacing-sm);
+    margin: calc(-1 * var(--spacing-sm));
+}
+
+.post-content summary:hover {
+    color: var(--color-primary);
+}
+
+.content-text {
+    margin-top: var(--spacing-lg);
+    line-height: 1.8;
+}
+
+.content-text h2,
+.content-text h3 {
+    margin-top: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+}
+
+.content-text ul,
+.content-text ol {
+    margin-left: var(--spacing-xl);
+    margin-bottom: var(--spacing-md);
+}
+
+.content-text li {
+    margin-bottom: var(--spacing-sm);
+}
+
+.content-text a {
+    text-decoration: underline;
+}
+
+/* ============================================================================
+   Footer
+   ============================================================================ */
+.post-footer {
+    margin-top: var(--spacing-2xl);
+    padding-top: var(--spacing-xl);
+    border-top: 1px solid var(--color-border);
+}
+
+.main-footer {
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    padding: var(--spacing-2xl) 0;
+    margin-top: var(--spacing-2xl);
+    text-align: center;
+    color: var(--color-text-secondary);
+}
+
+.main-footer p {
+    margin-bottom: var(--spacing-sm);
+}
+
+/* ============================================================================
+   Utility Classes
+   ============================================================================ */
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    font-weight: 500;
+}
+
+.empty-state {
+    text-align: center;
+    padding: var(--spacing-2xl);
+    color: var(--color-text-secondary);
+}
+
+.views {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+/* ============================================================================
+   Responsive Typography
+   ============================================================================ */
+@media (min-width: 768px) {
+    html {
+        font-size: 18px;
+    }
+}

@@ -1,0 +1,43 @@
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Environment
+.env
+
+# Database credentials (NIKDY nenahrávat na GitHub!)
+config/db.php
+
+# Uploads
+uploads/infographics/*
+!uploads/infographics/.htaccess
+
+# Logs
+*.log
+error_log
+access_log
+
+# Cache
+cache/
+temp/
+tmp/
+
+# Seed script (po použití smazat)
+seed-admin.php
+
+# Vendor (pokud použijete Composer)
+vendor/
+
+# Build files
+node_modules/
+dist/
+build/

@@ -1,0 +1,59 @@
+╔═══════════════════════════════════════════════════════════════════╗
+║              ⚡ JAK NAHRÁT ZNOVU NA FTP (OPRAVENO)               ║
+╚═══════════════════════════════════════════════════════════════════╝
+
+STRUKTURA BYLA UPRAVENA! Složka "public" už NENÍ potřeba.
+
+═══════════════════════════════════════════════════════════════════
+KROK 1: SMAŽ VŠECHNO NA FTP
+═══════════════════════════════════════════════════════════════════
+
+1. Připoj se na Wedos FTP
+2. Přejdi do: /domains/econvisuals.com/
+3. Označ VŠECHNO a SMAŽ
+
+═══════════════════════════════════════════════════════════════════
+KROK 2: NAHRAJ CELOU TUTO SLOŽKU
+═══════════════════════════════════════════════════════════════════
+
+Prostě vezmi CELOU složku "econvisuals.com" a přetáhni na FTP!
+
+Nahraje se:
+✅ .htaccess
+✅ index.php
+✅ robots.txt
+✅ assets/
+✅ config/
+✅ src/
+✅ uploads/
+✅ jsilepsi/
+✅ install.php
+✅ database.sql
+✅ README.md
+
+═══════════════════════════════════════════════════════════════════
+KROK 3: OTEVŘI WEB
+═══════════════════════════════════════════════════════════════════
+
+https://econvisuals.com/
+
+Měla by se zobrazit homepage! 🎉
+
+═══════════════════════════════════════════════════════════════════
+KROK 4: ADMINISTRACE
+═══════════════════════════════════════════════════════════════════
+
+https://econvisuals.com/jsilepsi/
+
+Přihlas se (už máš vytvořeného admina).
+
+═══════════════════════════════════════════════════════════════════
+HOTOVO!
+═══════════════════════════════════════════════════════════════════
+
+Žádné Document Root, žádné složité nastavení.
+Všechno je připravené!
+
+Pokud stále problém - napiš mi!
+
+═══════════════════════════════════════════════════════════════════

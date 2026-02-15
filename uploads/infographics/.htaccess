@@ -1,0 +1,23 @@
+# Disable PHP execution in uploads directory
+# KRITICKÉ pro bezpečnost - zabraňuje spouštění nahraných PHP souborů
+
+# Zakázat PHP engine
+php_flag engine off
+
+# Zakázat všechny PHP soubory
+<FilesMatch "\.ph(p[3-7]?|tml|ar)$">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>
+
+# Povolit pouze obrázky
+<FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico)$">
+    Order Allow,Deny
+    Allow from all
+</FilesMatch>
+
+# Zakázat přístup k .htaccess
+<Files .htaccess>
+    Order Allow,Deny
+    Deny from all
+</Files>
