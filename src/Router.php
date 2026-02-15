@@ -97,8 +97,10 @@ class Router
      */
     private function convertRouteToRegex(string $route): string
     {
-        $route = preg_replace('/\//', '\\/', $route);
-        $route = preg_replace('/:([^\/]+)/', '([^/]+)', $route);
+        // Escapovat forward slashes pro regex
+        $route = str_replace('/', '\/', $route);
+        // Nahradit :parametr za capturing group
+        $route = preg_replace('/:([a-zA-Z0-9_]+)/', '([^\/]+)', $route);
         return '/^' . $route . '$/';
     }
 
@@ -109,11 +111,11 @@ class Router
     {
         http_response_code(404);
         echo '<!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Stránka nenalezena</title>
+    <title>404 - Page Not Found</title>
     <style>
         body {
             font-family: system-ui, -apple-system, sans-serif;
@@ -142,7 +144,7 @@ class Router
 <body>
     <div class="error">
         <h1>404</h1>
-        <p>Stránka nenalezena</p>
+        <p>Page Not Found</p>
     </div>
 </body>
 </html>';

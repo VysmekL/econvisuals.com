@@ -4,7 +4,7 @@
  */
 
 $pageTitle = '#' . htmlspecialchars($tag['name']) . ' - Tag';
-$pageDescription = 'Infografiky s tagem ' . htmlspecialchars($tag['name']);
+$pageDescription = 'Infographics tagged with ' . htmlspecialchars($tag['name']);
 
 include __DIR__ . '/header.php';
 ?>
@@ -12,12 +12,12 @@ include __DIR__ . '/header.php';
 <main class="container">
     <header class="page-header">
         <h1>#<?= htmlspecialchars($tag['name']) ?></h1>
-        <a href="/" class="back-link">← Zpět na přehled</a>
+        <a href="/" class="back-link">← Back to overview</a>
     </header>
 
     <?php if (empty($posts)): ?>
         <div class="empty-state">
-            <p>S tímto tagem zatím nejsou žádné infografiky.</p>
+            <p>No infographics with this tag yet.</p>
         </div>
     <?php else: ?>
         <div class="infographic-grid">
@@ -47,7 +47,7 @@ include __DIR__ . '/header.php';
 
                             <div class="card-meta">
                                 <time datetime="<?= $post['created_at'] ?>">
-                                    <?= date('d.m.Y', strtotime($post['created_at'])) ?>
+                                    <?= date('M d, Y', strtotime($post['created_at'])) ?>
                                 </time>
                             </div>
                         </div>

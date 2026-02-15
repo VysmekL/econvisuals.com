@@ -2,7 +2,7 @@
 /**
  * Post Detail Template
  *
- * Detail infografiky s obsahem a zdroji
+ * Detail of infographic with content and sources
  */
 
 $pageTitle = htmlspecialchars($post['title']);
@@ -19,17 +19,17 @@ include __DIR__ . '/header.php';
 
             <div class="post-meta">
                 <?php if ($post['category_name']): ?>
-                    <a href="/kategorie/<?= htmlspecialchars($post['category_slug']) ?>" class="category-badge">
+                    <a href="/category/<?= htmlspecialchars($post['category_slug']) ?>" class="category-badge">
                         <?= htmlspecialchars($post['category_name']) ?>
                     </a>
                 <?php endif; ?>
 
                 <time datetime="<?= $post['created_at'] ?>">
-                    <?= date('d. F Y', strtotime($post['created_at'])) ?>
+                    <?= date('F j, Y', strtotime($post['created_at'])) ?>
                 </time>
 
                 <?php if ($post['views'] > 0): ?>
-                    <span class="views"><?= number_format($post['views']) ?> zobrazení</span>
+                    <span class="views"><?= number_format($post['views']) ?> views</span>
                 <?php endif; ?>
             </div>
 
@@ -58,7 +58,7 @@ include __DIR__ . '/header.php';
         <?php if ($post['content']): ?>
             <section class="post-content">
                 <details open>
-                    <summary>Popis a zdroje</summary>
+                    <summary>Description and Sources</summary>
                     <div class="content-text">
                         <?= $post['content'] ?>
                     </div>
@@ -67,7 +67,7 @@ include __DIR__ . '/header.php';
         <?php endif; ?>
 
         <footer class="post-footer">
-            <a href="/" class="back-link">← Zpět na přehled</a>
+            <a href="/" class="back-link">← Back to overview</a>
         </footer>
     </article>
 </main>

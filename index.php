@@ -38,21 +38,21 @@ $router->get('/post/:slug', function($slug) {
 
     if (!$post) {
         http_response_code(404);
-        echo '404 - Článek nenalezen';
+        echo '404 - Article Not Found';
         return;
     }
 
     require __DIR__ . '/src/templates/post-detail.php';
 });
 
-// Kategorie
-$router->get('/kategorie/:slug', function($slug) {
+// Category
+$router->get('/category/:slug', function($slug) {
     $categoryModel = new Category();
     $category = $categoryModel->findBySlug($slug);
 
     if (!$category) {
         http_response_code(404);
-        echo '404 - Kategorie nenalezena';
+        echo '404 - Category Not Found';
         return;
     }
 
@@ -69,7 +69,7 @@ $router->get('/tag/:slug', function($slug) {
 
     if (!$tag) {
         http_response_code(404);
-        echo '404 - Tag nenalezen';
+        echo '404 - Tag Not Found';
         return;
     }
 

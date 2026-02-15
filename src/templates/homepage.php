@@ -2,24 +2,24 @@
 /**
  * Homepage Template
  *
- * Zobrazení grid infografik
+ * Display grid of infographics
  */
 
-$pageTitle = 'Infografiky';
-$pageDescription = 'Sbírka vizuálních infografik s daty a zdroji.';
+$pageTitle = 'Infographics';
+$pageDescription = 'Collection of data-driven visual infographics with sources.';
 
 include __DIR__ . '/header.php';
 ?>
 
 <main class="container">
     <header class="page-header">
-        <h1>Infografiky</h1>
-        <p>Vizuální data založená na ověřených zdrojích</p>
+        <h1>Infographics</h1>
+        <p>Visual data based on verified sources</p>
     </header>
 
     <?php if (empty($posts)): ?>
         <div class="empty-state">
-            <p>Zatím nejsou publikovány žádné infografiky.</p>
+            <p>No infographics published yet.</p>
         </div>
     <?php else: ?>
         <div class="infographic-grid">
@@ -49,10 +49,10 @@ include __DIR__ . '/header.php';
 
                             <div class="card-meta">
                                 <time datetime="<?= $post['created_at'] ?>">
-                                    <?= date('d.m.Y', strtotime($post['created_at'])) ?>
+                                    <?= date('M d, Y', strtotime($post['created_at'])) ?>
                                 </time>
                                 <?php if ($post['views'] > 0): ?>
-                                    <span class="views"><?= number_format($post['views']) ?> zobrazení</span>
+                                    <span class="views"><?= number_format($post['views']) ?> views</span>
                                 <?php endif; ?>
                             </div>
                         </div>

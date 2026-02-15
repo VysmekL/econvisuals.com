@@ -1,7 +1,7 @@
     <footer class="main-footer">
         <div class="container">
-            <p>&copy; <?= date('Y') ?> Infografiky. Všechna práva vyhrazena.</p>
-            <p>Vytvořeno s využitím otevřených dat a ověřených zdrojů.</p>
+            <p>&copy; <?= date('Y') ?> EconVisuals. All rights reserved.</p>
+            <p>Created with open data and verified sources.</p>
         </div>
     </footer>
 </body>

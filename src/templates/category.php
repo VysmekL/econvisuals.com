@@ -3,8 +3,8 @@
  * Category Template
  */
 
-$pageTitle = htmlspecialchars($category['name']) . ' - Kategorie';
-$pageDescription = 'Infografiky v kategorii ' . htmlspecialchars($category['name']);
+$pageTitle = htmlspecialchars($category['name']) . ' - Category';
+$pageDescription = 'Infographics in category ' . htmlspecialchars($category['name']);
 
 include __DIR__ . '/header.php';
 ?>
@@ -12,12 +12,12 @@ include __DIR__ . '/header.php';
 <main class="container">
     <header class="page-header">
         <h1><?= htmlspecialchars($category['name']) ?></h1>
-        <a href="/" class="back-link">← Zpět na přehled</a>
+        <a href="/" class="back-link">← Back to overview</a>
     </header>
 
     <?php if (empty($posts)): ?>
         <div class="empty-state">
-            <p>V této kategorii zatím nejsou žádné infografiky.</p>
+            <p>No infographics in this category yet.</p>
         </div>
     <?php else: ?>
         <div class="infographic-grid">
@@ -41,7 +41,7 @@ include __DIR__ . '/header.php';
 
                             <div class="card-meta">
                                 <time datetime="<?= $post['created_at'] ?>">
-                                    <?= date('d.m.Y', strtotime($post['created_at'])) ?>
+                                    <?= date('M d, Y', strtotime($post['created_at'])) ?>
                                 </time>
                             </div>
                         </div>
