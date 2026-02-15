@@ -26,6 +26,9 @@
         <meta name="twitter:image" content="<?= $ogImage ?>">
     <?php endif; ?>
 
+    <!-- Pinterest Domain Verification -->
+    <meta name="p:domain_verify" content="3874db67fbf9a72082678fb211c89409"/>
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://<?= $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] ?>">
 
