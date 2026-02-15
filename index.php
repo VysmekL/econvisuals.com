@@ -79,6 +79,40 @@ $router->get('/tag/:slug', function($slug) {
     require __DIR__ . '/src/templates/tag.php';
 });
 
+// Search
+$router->get('/search', function() {
+    $query = trim($_GET['q'] ?? '');
+    $postModel = new Post();
+
+    if (empty($query)) {
+        $posts = [];
+    } else {
+        // Search in title and content
+        $db = Database::getInstance();
+        $sql = "SELECT p.*, c.name as category_name, c.slug as category_slug
+                FROM posts p
+                LEFT JOIN categories c ON p.category_id = c.id
+                WHERE (p.title LIKE ? OR p.content LIKE ?)
+                AND p.is_published = 1
+                ORDER BY p.created_at DESC
+                LIMIT 50";
+
+        $searchTerm = '%' . $query . '%';
+        $posts = $db->query($sql, [$searchTerm, $searchTerm])->fetchAll();
+
+        // Load tags for each post
+        foreach ($posts as &$post) {
+            $tagQuery = "SELECT t.id, t.name, t.slug
+                         FROM tags t
+                         INNER JOIN post_tags pt ON t.id = pt.tag_id
+                         WHERE pt.post_id = ?";
+            $post['tags'] = $db->query($tagQuery, [$post['id']])->fetchAll();
+        }
+    }
+
+    require __DIR__ . '/src/templates/search.php';
+});
+
 // ============================================================================
 // SPUSTIT ROUTER
 // ============================================================================
